@@ -1,0 +1,32 @@
+# This gnuplot script plots the results from the first coursework assignment.
+# It is assumed that the data to be plotted are in a file called
+# final.dat which contains 3 columns: x,y,u
+# The plot is sent to a PNG file called final.png
+# To use this file copy it to the directory/folder containing
+# final.dat and run the command:
+# gnuplot plot_final
+
+
+# Send output to a PNG file
+set terminal png  enhanced
+# Set the name of the output file
+set output "average.png"
+
+# Set ranges and labels for axes
+set style line 1 \
+    linecolor rgb '#5d1dab' \
+    linetype 1 linewidth 2 \
+    pointtype 3 pointsize 0.5
+
+set xlabel "x"
+set ylabel "vertical average of u(x,y)"
+
+# Enforce an aspect ratio of 1
+set size square
+
+set key at 14,0.17
+# Plot the data
+plot "average.dat" with linespoints linestyle 1 title "x versus vertically\naveraged u"
+
+
+# End of file
